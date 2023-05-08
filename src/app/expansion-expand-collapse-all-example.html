@@ -1,0 +1,63 @@
+<!-- #docregion multi -->
+
+<h3>Genart Configuration</h3>
+<br />
+
+<button mat-raised-button style="float: right" color="primary">
+  Add Genart
+</button>
+<br />
+<br />
+<br />
+<!-- #enddocregion multi -->
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel *ngFor="let genart of genartList.genarts" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{genart.genartNr}}-{{genart.genartName}}
+      </mat-panel-title>
+      <!-- <mat-panel-description> -->
+      <button mat-icon-button style="color: #ff8500">
+        <mat-icon>power_settings_new</mat-icon>
+      </button>
+      <button mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <!-- </mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <br />
+    <button mat-raised-button color="primary">Add Country</button>
+    <br />
+    <br />
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel *ngFor="let country of countriesList" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{country.name}} </mat-panel-title>
+
+          <button mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-expansion-panel-header>
+        <br />
+        <button mat-raised-button color="primary">Add Brand</button>
+        <br />
+        <br />
+
+        <mat-list *ngFor="let brand of brandList">
+          <mat-list-item>
+            <span>{{brand.brandName}}</span>
+            <button mat-icon-button style="float: right; color: #ff8500">
+              <mat-icon>visibility_off</mat-icon>
+            </button>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </mat-list>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!-- Copyright 2023 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
